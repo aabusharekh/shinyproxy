@@ -2,3 +2,8 @@
 /shinyproxy.log
 /application.yml
 /.project
+*.gz
+.project
+.classpath
+.settings
+
