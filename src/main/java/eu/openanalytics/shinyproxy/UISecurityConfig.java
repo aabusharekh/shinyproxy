@@ -32,11 +32,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static eu.openanalytics.containerproxy.ui.AuthController.AUTH_SUCCESS_URL_SESSION_ATTR;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 public class UISecurityConfig implements ICustomSecurityConfig {
@@ -56,10 +56,10 @@ public class UISecurityConfig implements ICustomSecurityConfig {
         if (auth.hasAuthorization()) {
 
             // Limit access to the app pages according to spec permissions
-            http.authorizeRequests().antMatchers("/app/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
-            http.authorizeRequests().antMatchers("/app_i/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
-            http.authorizeRequests().antMatchers("/app_direct/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
-            http.authorizeRequests().antMatchers("/app_direct_i/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
+            http.authorizeRequests().requestMatchers("/app/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
+            http.authorizeRequests().requestMatchers("/app_i/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
+            http.authorizeRequests().requestMatchers("/app_direct/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
+            http.authorizeRequests().requestMatchers("/app_direct_i/{specId}/**").access("@proxyAccessControlService.canAccessOrHasExistingProxy(authentication, #specId)");
 
             http.addFilterAfter(new AuthenticationRequiredFilter(), ExceptionTranslationFilter.class);
 
@@ -78,8 +78,8 @@ public class UISecurityConfig implements ICustomSecurityConfig {
             });
         }
         // Limit access to the admin pages
-        http.authorizeRequests().antMatchers("/admin").access("@userService.isAdmin()");
-        http.authorizeRequests().antMatchers("/admin/data").access("@userService.isAdmin()");
+        http.authorizeRequests().requestMatchers("/admin").access("@userService.isAdmin()");
+        http.authorizeRequests().requestMatchers("/admin/data").access("@userService.isAdmin()");
 
     }
 }

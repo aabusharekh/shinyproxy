@@ -24,9 +24,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import javax.inject.Inject;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 
 import eu.openanalytics.containerproxy.log.LogPaths;
 import eu.openanalytics.shinyproxy.AppRequestInfo;
@@ -40,6 +38,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import eu.openanalytics.containerproxy.model.runtime.Proxy;
 import eu.openanalytics.containerproxy.service.LogService;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class IssueController extends BaseController {
