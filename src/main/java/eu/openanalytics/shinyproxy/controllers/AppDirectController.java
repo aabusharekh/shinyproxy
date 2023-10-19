@@ -41,15 +41,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class AppDirectController extends BaseController {
 
-    @Inject
+    @Autowired
     private ProxyMappingManager mappingManager;
 
     @Operation(summary = "Proxy request to app. Starts the app if it does not yet exists. Can be used directly or for embedding.", tags = "ShinyProxy")

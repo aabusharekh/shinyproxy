@@ -72,13 +72,14 @@ import org.thymeleaf.context.ExpressionContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.StringTemplateResolver;
 
-import javax.inject.Inject;
+
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import org.thymeleaf.spring6.dialect.SpringStandardDialect;
@@ -86,13 +87,13 @@ import org.thymeleaf.spring6.dialect.SpringStandardDialect;
 @Controller
 public class AppController extends BaseController {
 
-	@Inject
+	@Autowired
 	private ProxyMappingManager mappingManager;
 
-	@Inject
+	@Autowired
 	private AsyncProxyService asyncProxyService;
 
-    @Inject
+    @Autowired
     private ParametersService parameterService;
 
 	private final ObjectMapper objectMapper = new ObjectMapper();

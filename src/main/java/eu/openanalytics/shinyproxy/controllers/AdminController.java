@@ -46,14 +46,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.inject.Inject;
+
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class AdminController extends BaseController {
 
-	@Inject
+	@Autowired
 	private ActiveProxiesService activeProxiesService;
 
 	@RequestMapping("/admin")

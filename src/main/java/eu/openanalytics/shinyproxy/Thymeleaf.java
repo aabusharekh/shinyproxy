@@ -21,16 +21,17 @@
 package eu.openanalytics.shinyproxy;
 
 import eu.openanalytics.containerproxy.model.spec.ProxySpec;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.inject.Inject;
+
 
 @Component
 public class Thymeleaf {
 
-    @Inject
+    @Autowired
     private ShinyProxySpecProvider shinyProxySpecProvider;
 
     public String getAppUrl(ProxySpec proxySpec) {

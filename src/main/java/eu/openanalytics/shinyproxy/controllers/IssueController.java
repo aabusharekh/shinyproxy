@@ -23,7 +23,7 @@ package eu.openanalytics.shinyproxy.controllers;
 import java.io.File;
 import java.util.HashMap;
 
-import javax.inject.Inject;
+
 
 
 import eu.openanalytics.containerproxy.log.LogPaths;
@@ -45,7 +45,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Controller
 public class IssueController extends BaseController {
 
-	@Inject
+	@Autowired
 	LogService logService;
 
 	@Autowired(required=false)

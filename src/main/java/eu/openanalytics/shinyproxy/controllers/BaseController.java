@@ -42,7 +42,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StreamUtils;
 
-import javax.inject.Inject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -51,31 +51,32 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseController {
 
-	@Inject
+	@Autowired
 	ProxyService proxyService;
 	
-	@Inject
+	@Autowired
 	UserService userService;
 	
-	@Inject
+	@Autowired
 	Environment environment;
 
-	@Inject
+	@Autowired
 	IAuthenticationBackend authenticationBackend;
 
-	@Inject
+	@Autowired
 	HeartbeatService heartbeatService;
 
-	@Inject
+	@Autowired
 	IdentifierService identifierService;
 
-	@Inject
+	@Autowired
 	protected ShinyProxySpecProvider shinyProxySpecProvider;
 
-	@Inject
+	@Autowired
 	private IContainerBackend backend;
 
 	private static final Logger logger = LogManager.getLogger(BaseController.class);

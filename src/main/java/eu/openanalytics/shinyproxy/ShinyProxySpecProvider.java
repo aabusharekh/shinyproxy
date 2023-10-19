@@ -45,7 +45,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -78,10 +78,10 @@ public class ShinyProxySpecProvider implements IProxySpecProvider {
 
 	private Boolean defaultAlwaysSwitchInstance;
 
-	@Inject
+	@Autowired
 	private SpecExpressionResolver expressionResolver;
 
-	@Inject
+	@Autowired
 	@Lazy
 	private UserService userService;
 

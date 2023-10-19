@@ -28,11 +28,12 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
+
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.Arrays;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * This component tests the responsiveness of Shiny containers by making an HTTP GET request to the container's published port (default 3838).
@@ -44,7 +45,7 @@ public class ShinyProxyTestStrategy implements IProxyTestStrategy {
 
 	private final StructuredLogger log = StructuredLogger.create(getClass());
 	
-	@Inject
+	@Autowired
 	private Environment environment;
 	
 	@Override

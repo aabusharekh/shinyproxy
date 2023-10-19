@@ -26,8 +26,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 @ConfigurationProperties(prefix = "proxy")
@@ -35,7 +36,7 @@ public class ShinyProxySpecExtensionProvider {
 
     private List<ShinyProxySpecExtension> specs;
 
-    @Inject
+    @Autowired
     private IProxySpecProvider proxySpecProvider;
 
     @PostConstruct

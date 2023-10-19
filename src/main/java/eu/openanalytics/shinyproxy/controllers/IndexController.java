@@ -31,20 +31,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class IndexController extends BaseController {
 
-	@Inject
+	@Autowired
 	private ShinyProxySpecProvider shinyProxySpecProvider;
 
-	@Inject
+	@Autowired
 	private Environment environment;
 
 	private MyAppsMode myAppsMode;
